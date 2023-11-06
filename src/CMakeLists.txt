@@ -1,5 +1,3 @@
-project(minetest)
-
 INCLUDE(CheckTypeSize)
 INCLUDE(CheckIncludeFiles)
 INCLUDE(CheckLibraryExists)
@@ -319,8 +317,8 @@ endif()
 check_include_files(endian.h HAVE_ENDIAN_H)
 
 configure_file(
-	"${PROJECT_SOURCE_DIR}/cmake_config.h.in"
-	"${PROJECT_BINARY_DIR}/cmake_config.h"
+	"${PROJECT_SOURCE_DIR}/src/cmake_config.h.in"
+	"${PROJECT_BINARY_DIR}/src/cmake_config.h"
 )
 
 
@@ -485,14 +483,14 @@ list(SORT server_SRCS)
 # Avoid source_group on broken CMake version.
 # see issue #7074 #7075
 if (CMAKE_VERSION VERSION_GREATER 3.8.1)
-	source_group(TREE ${PROJECT_SOURCE_DIR} PREFIX "Source Files" FILES ${client_SRCS})
-	source_group(TREE ${PROJECT_SOURCE_DIR} PREFIX "Source Files" FILES ${server_SRCS})
+	source_group(TREE ${PROJECT_SOURCE_DIR}/src PREFIX "Source Files" FILES ${client_SRCS})
+	source_group(TREE ${PROJECT_SOURCE_DIR}/src PREFIX "Source Files" FILES ${server_SRCS})
 endif()
 
 include_directories(
-	${PROJECT_BINARY_DIR}
-	${PROJECT_SOURCE_DIR}
-	${PROJECT_SOURCE_DIR}/script
+	${PROJECT_BINARY_DIR}/src
+	${PROJECT_SOURCE_DIR}/src
+	${PROJECT_SOURCE_DIR}/src/script
 )
 include_directories(SYSTEM
 	${ZLIB_INCLUDE_DIR}
