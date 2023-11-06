@@ -329,7 +329,7 @@ add_custom_target(GenerateVersion
 	-D "GENERATE_VERSION_BINARY_DIR=${CMAKE_CURRENT_BINARY_DIR}"
 	-D "VERSION_STRING=${VERSION_STRING}"
 	-D "DEVELOPMENT_BUILD=${DEVELOPMENT_BUILD}"
-	-P "${CMAKE_SOURCE_DIR}/cmake/Modules/GenerateVersion.cmake"
+	-P "${PROJECT_SOURCE_DIR}/cmake/Modules/GenerateVersion.cmake"
 	WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
 
 
@@ -522,7 +522,7 @@ endif()
 # When cross-compiling assume the user doesn't want to run the executable anyway,
 # otherwise place it in <source dir>/bin/ since Minetest can only run from there.
 if(NOT CMAKE_CROSSCOMPILING)
-	set(EXECUTABLE_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/bin")
+	set(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/bin")
 endif()
 
 if(BUILD_CLIENT)
