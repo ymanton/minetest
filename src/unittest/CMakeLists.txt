@@ -53,5 +53,5 @@ set (HELPERS_PATH ${CMAKE_CURRENT_SOURCE_DIR}/helpers)
 
 configure_file(
 	"${CMAKE_CURRENT_SOURCE_DIR}/test_config.h.in"
-	"${PROJECT_BINARY_DIR}/test_config.h"
+	"${PROJECT_BINARY_DIR}/src/test_config.h"
 )
